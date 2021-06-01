@@ -1,15 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+
 const useDataApi = (initialUrl, initialData) => {
+  const cache = useRef({});
   const [data, setData] = useState(initialData);
   const [url, setUrl] = useState(initialUrl);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
+    if (!url) return;
     const fetchData = async () => {
       setIsError(false);
       setIsLoading(true);
-
+      console.log("same...", cache.current);
+      if (cache.current[url]) {
+        console.log("sam", cache.current);
+        const data = cache.current[url];
+        setData(data);
+        setIsLoading(false);
+      }
       try {
         const result = await fetch(url);
         const res = await result.json();
@@ -22,7 +31,7 @@ const useDataApi = (initialUrl, initialData) => {
     };
 
     fetchData();
-  }, [url]);
+  }, []);
 
   return [data, isLoading, isError, setUrl];
 };

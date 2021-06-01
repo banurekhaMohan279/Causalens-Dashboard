@@ -31,7 +31,12 @@ const Select = props => {
                 onChange={handleChange}
               >
                 {data.map(element => (
-                  <option key={element.toString()}>{element}</option>
+                  <option
+                    key={element.toString()}
+                    selected={element === series}
+                  >
+                    {element}
+                  </option>
                 ))}
               </Form.Control>
             </Form.Group>

@@ -1,5 +1,6 @@
 //import {GridBtn, GridTile} from '../assets/css/Dashboard.style.js'
 import { useEffect, useState } from "react";
+import usePersistedState from "../utils/usePersistedState";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,7 +10,10 @@ import TableComponent from "../components/Table";
 import LineChartComponent from "../components/Charts/LineChart";
 
 function Dashboard() {
-  const [currentSeries, setCurrentSeries] = useState("example.X");
+  const [currentSeries, setCurrentSeries] = usePersistedState(
+    "currentSeries",
+    "example.X"
+  );
   const [existing, setExisting] = useState([]);
   const [predicted, setPredicted] = useState([]);
   const [isLoading, setIsLoading] = useState(false);

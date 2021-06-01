@@ -2,12 +2,12 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background: ${props => (props.theme ? "beige" : "white")};
+    background: ${props => (props.toggle ? "#F7F9FF" : "#20222F")};
   }
-  html, body, #root{
-    height: 100%;
+
+  header{
+    background: ${props => (props.toggle ? "#20222F" : "#F7F9FF")};
+    color: ${props => (props.toggle ? "#F7F9FF" : "#20222F")};
   }
-  .container{
-    height: 100%;
-  }
+
 `;
