@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 const useDataApi = (initialUrl, initialData) => {
   const [data, setData] = useState(initialData);
   const [url, setUrl] = useState(initialUrl);
@@ -6,7 +6,6 @@ const useDataApi = (initialUrl, initialData) => {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-
     const fetchData = async () => {
       setIsError(false);
       setIsLoading(true);

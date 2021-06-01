@@ -1,8 +1,8 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background: ${props => (props.theme ? 'beige' : 'white')};
+    background: ${props => (props.theme ? "beige" : "white")};
   }
   html, body, #root{
     height: 100%;
@@ -10,4 +10,4 @@ export const GlobalStyle = createGlobalStyle`
   .container{
     height: 100%;
   }
-`
+`;
