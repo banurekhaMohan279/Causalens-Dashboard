@@ -1,20 +1,13 @@
-//import React, {useState, useEffect} from 'react'
 import { Form } from 'react-bootstrap'
-import useDataApi from '../Common/useDataApi'
-import {SeriesContext} from '../App'
-import {useContext} from 'react'
+import useDataApi from '../utils/useDataApi'
 
-const Select = () => {
-  const [data, isLoading, isError , doFetch] = useDataApi(
-    'http://localhost:3002/series',
-    []
-  );
-
-  const {currentSeries,setCurrentSeries} = useContext(SeriesContext)
+const Select = (props) => {
+  const {series, setSeries} = props;
+  const [data, isLoading, isError , doFetch] = useDataApi('http://localhost:3002/series', []);
 
   const handleChange = (e) =>{
     e.preventDefault();
-    setCurrentSeries(e.currentTarget.value);
+    setSeries(e.currentTarget.value);
     console.log('setting current series');
   }
 
@@ -26,7 +19,7 @@ const Select = () => {
     ) : (
         <>
           <Form>
-            <Form.Group controlId="exampleForm.SelectCustomSizeSm">
+            <Form.Group>
               <Form.Label>Select Series</Form.Label>
               <Form.Control as="select" size="sm" custom onChange = {handleChange}>
                 {data.map((element) => (

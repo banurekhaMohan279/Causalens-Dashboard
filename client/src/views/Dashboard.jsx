@@ -1,22 +1,22 @@
-import {GridBtn, GridTile} from './Dashboard.style.js'
-import {SeriesContext} from '../App'
-import {useContext, useEffect, useState} from 'react'
+//import {GridBtn, GridTile} from '../assets/css/Dashboard.style.js'
+import {useEffect, useState} from 'react'
+import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import BarChartComponent from '../Charts/BarChart'
-import TableComponent from '../Table/Table'
-import LineChartComponent from '../Charts/LineChart'
-import useDataApi from '../Common/useDataApi'
+import Select from '../components/Select.jsx'
+import BarChartComponent from '../components/Charts/BarChart'
+import TableComponent from '../components/Table'
+import LineChartComponent from '../components/Charts/LineChart'
 
 function Dashboard() {
-  const {currentSeries,setCurrentSeries} = useContext(SeriesContext);
+  const [currentSeries, setCurrentSeries] = useState('example.X');
+  const [existing, setExisting] = useState([]);
+  const [predicted, setPredicted] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   let urls = [
     `http://localhost:3002/data/${currentSeries}`,
     `http://localhost:3002/results/${currentSeries}`
   ];
-  const [existing, setExisting] = useState([]);
-  const [predicted, setPredicted] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(()=>{
     setIsLoading(true);
@@ -29,15 +29,14 @@ function Dashboard() {
         setIsLoading(false);
     })
   },[currentSeries]);
-  /*let existing, isLoading, isError1, doFetch1, predicted, isLoading2, isError2, doFetch2;
 
+  /*
   useEffect(()=>{
      [existing, isLoading, isError1, doFetch1] = useDataApi(`http://localhost:3002/data/${currentSeries}`,[]);
      [predicted, isLoading2, isError2, doFetch2] = useDataApi(`http://localhost:3002/results/${currentSeries}`,[]);
   },[currentSeries]);*/
 
   function LoadData(){
-    console.log('Inside render ..', currentSeries);
     return (
       <>
         <Row>
@@ -54,10 +53,11 @@ function Dashboard() {
   }
 
   return (
-      <>
-      {isLoading ? (<div> Loading... </div>)
-      : (LoadData())}
-      </>
+      <Container fluid>
+          <Select series = {currentSeries} setSeries = {setCurrentSeries}/>
+          {isLoading ? (<div> Loading... </div>)
+          : (LoadData())}
+      </Container>
   )
 }
 export default Dashboard

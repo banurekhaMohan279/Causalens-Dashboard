@@ -1,5 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
-//make data take isloading and iserror keys too
+import { useState, useEffect } from 'react';
 const useDataApi = (initialUrl, initialData) => {
   const [data, setData] = useState(initialData);
   const [url, setUrl] = useState(initialUrl);

@@ -4,13 +4,12 @@ import {
 
 export default function BarChartComponent(props){
   const featureImportance = props.featureImportance;
-  console.log('featureImportance',featureImportance);
   let result =[];
   if(featureImportance){
   for (const [key, value] of Object.entries(featureImportance)) {
     if(value>0) result.push({'name':key,'pv':value});
   }
-}
+ }
 
   return(
     <>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Row from 'react-bootstrap/Row'
-import {HeaderBtn} from './Header.style.js'
+import {HeaderBtn} from '../assets/css/Header.style.js'
 
 const Header = () => {
   return (

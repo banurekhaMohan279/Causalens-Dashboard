@@ -1,25 +1,18 @@
-/*eslint-disable */
 import React, {useState} from 'react'
-import Container from 'react-bootstrap/Container'
-import Header from './Header/Header.jsx'
-import Select from './Select/Select.jsx'
-import Dashboard from './Dashboard/Dashboard.jsx'
-import {GlobalStyle} from './Common/GlobalStyle'
-export const SeriesContext = React.createContext()
-//import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Header from './components/Header.jsx'
+import Dashboard from './views/Dashboard.jsx'
+import {GlobalStyle} from './utils/GlobalStyle'
+import 'bootstrap/dist/css/bootstrap.min.css';
+export const ThemeContext = React.createContext()
 
 const App = () => {
-  const [currentSeries, setCurrentSeries] = useState('example.X');
+  const [theme, setTheme] = useState('light');
   return (
-  <SeriesContext.Provider value = {{currentSeries,setCurrentSeries}}>
+  <ThemeContext.Provider value = {{theme,setTheme}}>
       <GlobalStyle/>
-      <Container fluid>
         <Header />
-        <Select />
         <Dashboard />
-      </Container>
-  </SeriesContext.Provider>
+  </ThemeContext.Provider>
   )
 }
 

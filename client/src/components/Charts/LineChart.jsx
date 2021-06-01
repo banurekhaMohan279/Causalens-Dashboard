@@ -3,7 +3,7 @@ import {
 } from 'recharts';
 
 export default function LineChartComponent(props){
-  const {existing, predicted, currentSeries} = props;
+  const {existing, predicted} = props;
   let results =   existing.map(itm => ({
         ...predicted.find((item) => (item.index === itm.index) && (item.prediction)),
         ...itm
@@ -18,7 +18,6 @@ export default function LineChartComponent(props){
         margin={{top: 10, bottom: 10, left: 30, right: 30}}
       >
         <XAxis dataKey='index' />
-        <YAxis type="number" domain={[0, 20000]}/>
         <CartesianGrid stroke='#f5f5f5'/>
         <Brush />
         <Tooltip filterNull={false} />

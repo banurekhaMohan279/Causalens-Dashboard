@@ -3,6 +3,7 @@ const cors = require("cors");
 const csv = require("csv-parser");
 const express = require("express");
 const fs = require("fs");
+const path = require('path');
 
 const data = [];
 fs.createReadStream("demo_data.csv")
@@ -17,7 +18,12 @@ fs.createReadStream("demo_data.csv")
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../client/build')));
 const port = 3002;
+
+app.get('/',(req,res)=>{
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+})
 
 /**
  * List the targets available from the dataset that is currently loaded
