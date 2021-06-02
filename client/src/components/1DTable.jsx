@@ -5,7 +5,6 @@ export default function OneDTable(props) {
 
   function displayBody() {
     if (data) {
-      console.log("data", data);
       return Object.entries(data).map(([key, value]) => {
         return (
           <tr key={key.toString()}>
