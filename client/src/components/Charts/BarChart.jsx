@@ -1,4 +1,12 @@
-import { BarChart, XAxis, YAxis, Tooltip, Bar, LabelList } from "recharts";
+import {
+  BarChart,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Bar,
+  LabelList,
+  ResponsiveContainer
+} from "recharts";
 
 export default function BarChartComponent(props) {
   const featureImportance = props.featureImportance;
@@ -10,9 +18,9 @@ export default function BarChartComponent(props) {
   }
 
   return (
-    <>
-      <h5> Feature Importance </h5>
+    <ResponsiveContainer>
       <div className="area-chart-wrapper">
+        <h5> Feature Importance </h5>
         <BarChart
           width={400}
           height={400}
@@ -23,11 +31,11 @@ export default function BarChartComponent(props) {
           <XAxis datakey="value" type="number" />
           <YAxis dataKey="index" type="category" />
           <Tooltip />
-          <Bar dataKey="value" fill="#387908">
+          <Bar dataKey="value" fill="#1EB589">
             <LabelList position="right" />
           </Bar>
         </BarChart>
       </div>
-    </>
+    </ResponsiveContainer>
   );
 }

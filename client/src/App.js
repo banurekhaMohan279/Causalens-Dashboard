@@ -1,6 +1,6 @@
 import React from "react";
 import usePersistedState from "./utils/usePersistedState";
-import { GlobalStyle } from "./utils/GlobalStyle";
+import { GlobalStyle } from "./assets/css/GlobalStyle.style";
 import Header from "./components/Header.jsx";
 import Dashboard from "./views/Dashboard.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,7 +10,7 @@ const App = () => {
   const [theme, setTheme] = usePersistedState("light", true);
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <GlobalStyle toggle={theme} />
+      <GlobalStyle light={theme} />
       <Header />
       <Dashboard />
     </ThemeContext.Provider>
