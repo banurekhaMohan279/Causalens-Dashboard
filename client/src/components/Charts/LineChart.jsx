@@ -8,12 +8,19 @@ import {
   Line,
   ResponsiveContainer
 } from "recharts";
+//import { timeFormat } from "d3";
 
 export default function LineChartComponent(props) {
   const { series, existing, predicted } = props;
+  console.log("here...");
+  for (let itm of existing) {
+    console.log("itm", itm[series], itm[series] !== "");
+  }
 
   let results = existing.map(itm => ({
-    ...predicted.find(item => item.index === itm.index && item.prediction),
+    ...predicted.find(
+      item => item.index === itm.index && item.prediction && itm[series]
+    ),
     ...itm
   }));
 

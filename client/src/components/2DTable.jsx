@@ -8,15 +8,15 @@ export default function TwoDTable(props) {
     // restruturing confusionmetric object to a 2D array
     if (data) {
       res.push(
-        ["", "Positive", "Negative"],
+        [" ", "Positive", "Negative"],
         ["Positive", data["truePositive"], data["trueNegative"]],
         ["Negative", data["falsePositive"], data["falseNegative"]]
       );
       let rows = res.map((item, i) => {
         let entry = item.map((element, j) => {
-          return <td key={j}> {element} </td>;
+          return <td key={j}>{element}</td>;
         });
-        return <tr key={i}> {entry} </tr>;
+        return <tr key={i}>{entry}</tr>;
       });
       return rows;
     }
