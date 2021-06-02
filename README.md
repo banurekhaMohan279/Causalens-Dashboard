@@ -11,16 +11,13 @@
 
   <p align="center">
     A dashboard of M/L results
-    <br />
-   <!-- <a href="https://github.com/banurekhaMohan279/Banurekha-Mohan-Portfolio/"><strong>Explore the docs »</strong></a>
-    <br />-->
+
     <br />
 
-    ·
     <a href="https://github.com/banurekhaMohan279/Causalens-Dashboard/issues">Report Bug</a>
-    ·
+
     <a href="https://github.com/banurekhaMohan279/Causalens-Dashboard/issues">Request Feature</a>
-    ·
+
     <a href="https://github.com/banurekhaMohan279/Causalens-Dashboard/pulls">Send a Pull Request</a>
 
   </p>
