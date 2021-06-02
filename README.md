@@ -33,8 +33,6 @@
 - [About the Project](#about-the-project)
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-    <!--* [Installation](#installation)-->
 - [Usage](#usage)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -50,20 +48,21 @@
 
 Frontend Test for Causalens
 It has the following broad segments :
--Actual vs Prediction plot
--Feature Importance
--Model details
--Scoring metrics
--Confusion Matrix
+
+- Actual vs Prediction plot
+- Feature Importance
+- Model details
+- Scoring metrics
+- Confusion Matrix
 
 Feel free to fork it to showcase your work!
 
 ### Built With
 
--React CRA
--React bootstrap
--Recharts
--Styled components
+- React CRA
+- React bootstrap
+- Recharts
+- Styled components
 
 <!-- GETTING STARTED -->
 
