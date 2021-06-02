@@ -1,15 +1,17 @@
 import {
   LineChart,
   XAxis,
+  YAxis,
   Tooltip,
   CartesianGrid,
   Brush,
+  Label,
   Line
 } from "recharts";
 import d3 from "d3";
 
 export default function LineChartComponent(props) {
-  const { existing, predicted } = props;
+  const { series, existing, predicted } = props;
 
   let results = existing.map(itm => ({
     ...predicted.find(item => item.index === itm.index && item.prediction),
@@ -17,31 +19,29 @@ export default function LineChartComponent(props) {
   }));
 
   return (
-    <div className="line-chart-wrapper" style={{ padding: 40 }}>
+    <div className="line-chart-wrapper">
+      <h5> Actual vs Prediction Plot - {series}</h5>
       <LineChart
         width={400}
         height={400}
         data={results}
         margin={{ top: 10, bottom: 10, left: 30, right: 30 }}
       >
+        <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="index" />
-        <CartesianGrid stroke="#f5f5f5" />
+        <YAxis />
         <Brush />
-        <Tooltip filterNull={false} />
+        <Tooltip />
         <Line
           type="monotone"
-          key={"0"}
           dataKey="prediction"
           stroke="#132908"
-          yAxisId={1}
           activeDot={{ fill: "#132908", stroke: "none", r: 6 }}
         />
         <Line
           type="monotone"
-          key={"1"}
-          dataKey={props.series}
+          dataKey={series}
           stroke="#387908"
-          yAxisId={1}
           activeDot={{ fill: "#387908", stroke: "none", r: 6 }}
         />
       </LineChart>

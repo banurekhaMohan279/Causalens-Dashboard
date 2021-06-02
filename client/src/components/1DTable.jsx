@@ -1,15 +1,16 @@
 import Table from "react-bootstrap/Table";
 
-export default function TableComponent(props) {
+export default function OneDTable(props) {
   const { heading, header, data } = props;
 
   function displayBody() {
     if (data) {
+      console.log("data", data);
       return Object.entries(data).map(([key, value]) => {
         return (
           <tr key={key.toString()}>
             <td> {key} </td>
-            <td> {value} </td>
+            <td> {Number(value) ? value.toFixed(3) : value} </td>
           </tr>
         );
       });

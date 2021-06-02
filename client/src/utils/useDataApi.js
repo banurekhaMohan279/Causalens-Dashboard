@@ -12,9 +12,7 @@ const useDataApi = (initialUrl, initialData) => {
     const fetchData = async () => {
       setIsError(false);
       setIsLoading(true);
-      console.log("same...", cache.current);
       if (cache.current[url]) {
-        console.log("sam", cache.current);
         const data = cache.current[url];
         setData(data);
         setIsLoading(false);

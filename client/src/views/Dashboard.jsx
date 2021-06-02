@@ -6,7 +6,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Select from "../components/Select.jsx";
 import BarChartComponent from "../components/Charts/BarChart";
-import TableComponent from "../components/Table";
+import OneDTable from "../components/1DTable";
+import TwoDTable from "../components/2DTable";
 import LineChartComponent from "../components/Charts/LineChart";
 
 function Dashboard() {
@@ -60,23 +61,22 @@ function Dashboard() {
         </Row>
         <Row>
           <Col>
-            <TableComponent
+            <OneDTable
               heading="Model Details"
               header={["Property", "Value"]}
               data={predicted.modelSummary}
             />
           </Col>
           <Col>
-            <TableComponent
+            <OneDTable
               heading="Scoring Metrics"
               header={["Metric", "Value"]}
               data={predicted["scoring_metrics"]}
             />
           </Col>
           <Col>
-            <TableComponent
+            <TwoDTable
               heading="Confusion Matrix"
-              header={["", "Positive", "Negative"]}
               data={predicted.confusionMetric}
             />
           </Col>

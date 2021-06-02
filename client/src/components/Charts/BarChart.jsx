@@ -5,7 +5,7 @@ export default function BarChartComponent(props) {
   let result = [];
   if (featureImportance) {
     for (const [key, value] of Object.entries(featureImportance)) {
-      if (value > 0) result.push({ index: key, value: value });
+      if (value > 0) result.push({ index: key, value: value.toFixed(3) });
     }
   }
 
@@ -20,7 +20,7 @@ export default function BarChartComponent(props) {
           margin={{ top: 20, right: 50, bottom: 20, left: 50 }}
           layout="vertical"
         >
-          <XAxis type="number" />
+          <XAxis datakey="value" type="number" />
           <YAxis dataKey="index" type="category" />
           <Tooltip />
           <Bar dataKey="value" fill="#387908">

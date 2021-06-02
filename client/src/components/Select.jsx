@@ -11,7 +11,6 @@ const Select = props => {
   const handleChange = e => {
     e.preventDefault();
     setSeries(e.currentTarget.value);
-    console.log("setting current series");
   };
 
   return (
@@ -29,14 +28,10 @@ const Select = props => {
                 size="sm"
                 custom
                 onChange={handleChange}
+                defaultValue={series}
               >
                 {data.map(element => (
-                  <option
-                    key={element.toString()}
-                    selected={element === series}
-                  >
-                    {element}
-                  </option>
+                  <option key={element.toString()}>{element}</option>
                 ))}
               </Form.Control>
             </Form.Group>
