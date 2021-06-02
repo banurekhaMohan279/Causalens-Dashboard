@@ -5,10 +5,8 @@ import {
   Tooltip,
   CartesianGrid,
   Brush,
-  Label,
   Line
 } from "recharts";
-import d3 from "d3";
 
 export default function LineChartComponent(props) {
   const { series, existing, predicted } = props;
