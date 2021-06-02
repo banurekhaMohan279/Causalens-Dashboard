@@ -12,10 +12,6 @@ import {
 
 export default function LineChartComponent(props) {
   const { series, existing, predicted } = props;
-  console.log("here...");
-  for (let itm of existing) {
-    console.log("itm", itm[series], itm[series] !== "");
-  }
 
   let results = existing.map(itm => ({
     ...predicted.find(
