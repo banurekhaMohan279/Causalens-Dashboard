@@ -75,6 +75,13 @@ Download or clone the project repository to your local folder.
 
 ## Usage
 
+To View:
+
+- cd server
+- npm run start
+
+To work on the code:
+
 - cd client
 - npm i
 - npm start
